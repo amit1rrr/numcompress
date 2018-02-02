@@ -1,6 +1,7 @@
 import unittest
 import random
 import sys
+import pytest
 from numcompress import compress, decompress
 
 
@@ -64,3 +65,39 @@ class TestNumCompress(unittest.TestCase):
         print("\n10k floats compressed by ", round(reduction, 2), "%")
 
         self.assertEqual(decompress(text), series)
+
+    def test_compress_none_value_raises_exception(self):
+        with pytest.raises(ValueError):
+            compress(None)
+
+    def test_compress_non_list_value_raises_exception(self):
+        with pytest.raises(ValueError):
+            compress(23)
+
+    def test_compress_decompress_works_with_empty_list(self):
+        self.assertEqual(compress([]), '')
+        self.assertEqual(decompress(''), [])
+
+    def test_compress_non_numerical_list_value_raises_exception(self):
+        with pytest.raises(ValueError):
+            compress([123, 'someText', 456])
+
+    def test_compress_non_integer_precision_raises_exception(self):
+        with pytest.raises(ValueError):
+            compress([123, 125], precision='someValue')
+
+    def test_compress_negative_precision_raises_exception(self):
+        with pytest.raises(ValueError):
+            compress([123, 125], precision=-2)
+
+    def test_compress_higher_than_limit_precision_raises_exception(self):
+        with pytest.raises(ValueError):
+            compress(23, precision=17)
+
+    def test_decompress_non_text_input_raises_exception(self):
+        with pytest.raises(ValueError):
+            decompress(23)
+
+    def test_decompress_invalid_text_input_raises_exception(self):
+        with pytest.raises(ValueError):
+            decompress('^fhfjelr;')
