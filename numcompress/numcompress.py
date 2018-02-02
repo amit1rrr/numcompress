@@ -4,6 +4,7 @@ PRECISION_UPPER_LIMIT = 10
 
 def compress(series, precision=3):
     last_num = 0
+    result = ''
 
     if not isinstance(series, list):
         raise ValueError('Input to compress should be of type list.')
@@ -19,8 +20,11 @@ def compress(series, precision=3):
     if not is_numerical_series:
         raise ValueError('All input list items should either be of type int or float.')
 
+    if not series:
+        return result
+
     # Store precision value at the beginning of the compressed text
-    result = chr(precision + 63)
+    result += chr(precision + 63)
 
     for num in series:
         diff = num - last_num
@@ -50,6 +54,9 @@ def decompress(text):
     # decode precision value
     precision = ord(text[index]) - 63
     index += 1
+
+    if precision < PRECISION_LOWER_LIMIT or precision > PRECISION_UPPER_LIMIT:
+        raise ValueError('Invalid string sent to decompress. Please check the string for accuracy.')
 
     while index < len(text):
         index, diff = decompress_number(text, index)
