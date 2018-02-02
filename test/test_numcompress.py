@@ -42,7 +42,7 @@ class TestNumCompress(unittest.TestCase):
         reduction = ((original_size - compressed_size) * 100.0) / original_size
 
         self.assertEqual(compressed_size < original_size, True)
-        print("\n10k timestamps compressed by ", round(reduction, 2), "%")
+        print('10k timestamps compressed by ', round(reduction, 2), '%')
 
         self.assertEqual(decompress(text), series)
 
@@ -51,7 +51,7 @@ class TestNumCompress(unittest.TestCase):
         series = [seed]
         previous = seed
 
-        for _ in range(100):
+        for _ in range(10000):
             current = previous + random.randrange(1000, 100000) * (10**-2)
             series.append(round(current, 3))
             previous = current
@@ -62,7 +62,7 @@ class TestNumCompress(unittest.TestCase):
         reduction = ((original_size - compressed_size) * 100.0) / original_size
 
         self.assertEqual(compressed_size < original_size, True)
-        print("\n10k floats compressed by ", round(reduction, 2), "%")
+        print('10k floats compressed by ', round(reduction, 2), '%')
 
         self.assertEqual(decompress(text), series)
 

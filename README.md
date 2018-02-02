@@ -1,5 +1,5 @@
 # numcompress
-Simple way to compress and decompress numerical series. Easily gets you above 80% compression. You can specify the precision you need (up to 10 decimal points). Efficient way to store, transmit series of numbers.
+Simple way to compress and decompress numerical series. Easily gets you above 80% compression. You can specify the precision you need for floating points (up to 10 decimal points). Provides an efficient way to store or transmit series of numbers.
 
 Compression algorithm is based on [google encoded polyline format](https://developers.google.com/maps/documentation/utilities/polylinealgorithm). I tweaked it to preserve arbitrary precision and apply it to any numerical series. The work is motivated by usefulness of [time aware polyline](https://github.com/hypertrack/time-aware-polyline-py) built by [Arjun Attam](https://github.com/arjun27) at [HyperTrack](https://github.com/hypertrack/time-aware-polyline-py).
 
@@ -7,7 +7,7 @@ Compression algorithm is based on [google encoded polyline format](https://devel
 
 # Installation
 ```
-pip numcompress install
+pip install numcompress
 ```
 
 # Usage
@@ -43,5 +43,11 @@ from numcompress import compress, decompress
 ```
 
 
+# Compression Ratio
+[This](https://github.com/amit1rrr/numcompress/blob/master/test/test_numcompress.py#L29) and [this](https://github.com/amit1rrr/numcompress/blob/master/test/test_numcompress.py#L49) test prints compression ratio. We get 91.14% compression for 10k integers and 81.35% compression for 10k floats. You can run the test suite with -s switch to see the compression ratio.
+```
+pytest -s
+```
+
 # Contribute
-If you see any problem open an issue or send a pull request. You can write to [me](https://blog.amirathi.com/about/) at [amit.juschill@gmail.com](mailto:amit.juschill@gmail.com)
+If you see any problem, open an issue or send a pull request. You can write to [me](https://blog.amirathi.com/about/) at [amit.juschill@gmail.com](mailto:amit.juschill@gmail.com)
