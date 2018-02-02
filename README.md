@@ -48,7 +48,7 @@ from numcompress import compress, decompress
 
 
 # Compression Ratio
-[This](https://github.com/amit1rrr/numcompress/blob/master/test/test_numcompress.py#L29) and [this](https://github.com/amit1rrr/numcompress/blob/master/test/test_numcompress.py#L49) test computes compression ratio. We get **91.14%** compression for 10k integers and **81.35%** compression for 10k floats. You can run the test suite with -s switch to see the compression ratio.
+[This](https://github.com/amit1rrr/numcompress/blob/master/test/test_numcompress.py#L29) and [this](https://github.com/amit1rrr/numcompress/blob/master/test/test_numcompress.py#L49) test computes compression ratio. We get **91.14%** compression for 10k integers and **81.35%** compression for 10k floats. You can run the test suite with -s switch to see the compression ratio. You can even modify the test to see what kind of compression ration you will get for your own input.
 ```
 pytest -s
 ```
