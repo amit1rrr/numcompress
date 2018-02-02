@@ -41,7 +41,7 @@ class TestNumCompress(unittest.TestCase):
         reduction = ((original_size - compressed_size) * 100.0) / original_size
 
         self.assertLess(compressed_size, original_size)
-        print "\n10k timestamps compressed by {:0.2f}%".format(reduction)
+        print("\n10k timestamps compressed by ", round(reduction, 2), "%")
 
         self.assertEqual(decompress(text), series)
 
@@ -61,6 +61,6 @@ class TestNumCompress(unittest.TestCase):
         reduction = ((original_size - compressed_size) * 100.0) / original_size
 
         self.assertLess(compressed_size, original_size)
-        print "\n10k floats compressed by {:0.2f}%".format(reduction)
+        print("\n10k floats compressed by ", round(reduction, 2), "%")
 
         self.assertEqual(decompress(text), series)
