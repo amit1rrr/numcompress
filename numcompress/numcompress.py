@@ -41,7 +41,7 @@ def decompress(text):
     result = []
     index = last_num = 0
 
-    if not isinstance(text, basestring):
+    if not isinstance(text, str):
         raise ValueError('Input to decompress should be of type str.')
 
     if not text:
