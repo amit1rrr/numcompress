@@ -14,6 +14,6 @@ setup(
     url='https://github.com/amit1rrr/numcompress',
     license='MIT',
     download_url='',
-    keywords=[],
+    keywords=['compression', 'numerical', 'numbers into text'],
     classifiers=[]
 )
