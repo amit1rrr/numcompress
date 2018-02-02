@@ -40,7 +40,7 @@ class TestNumCompress(unittest.TestCase):
         compressed_size = sys.getsizeof(text)
         reduction = ((original_size - compressed_size) * 100.0) / original_size
 
-        self.assertLess(compressed_size, original_size)
+        self.assertEqual(compressed_size < original_size, True)
         print("\n10k timestamps compressed by ", round(reduction, 2), "%")
 
         self.assertEqual(decompress(text), series)
@@ -60,7 +60,7 @@ class TestNumCompress(unittest.TestCase):
         compressed_size = sys.getsizeof(text)
         reduction = ((original_size - compressed_size) * 100.0) / original_size
 
-        self.assertLess(compressed_size, original_size)
+        self.assertEqual(compressed_size < original_size, True)
         print("\n10k floats compressed by ", round(reduction, 2), "%")
 
         self.assertEqual(decompress(text), series)
