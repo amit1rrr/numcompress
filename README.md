@@ -1,5 +1,4 @@
 # numcompress
---------------
 Simple way to compress and decompress numerical series. Easily gets you above 80% compression. You can specify the precision you need (up to 10 decimal points). Efficient way to store, transmit series of numbers.
 
 Compression algorithm is based on [google encoded polyline format](https://developers.google.com/maps/documentation/utilities/polylinealgorithm). I tweaked it to preserve arbitrary precision and apply it to any numerical series. The work is motivated by usefulness of [time aware polyline](https://github.com/hypertrack/time-aware-polyline-py) built by [Arjun Attam](https://github.com/arjun27) at [HyperTrack](https://github.com/hypertrack/time-aware-polyline-py).
@@ -7,13 +6,11 @@ Compression algorithm is based on [google encoded polyline format](https://devel
 [![PyPI version](https://badge.fury.io/py/numcompress.svg)](https://badge.fury.io/py/numcompress) [![Build Status](https://travis-ci.org/amit1rrr/numcompress.svg?branch=master)](https://travis-ci.org/amit1rrr/numcompress)  [![Coverage Status](https://coveralls.io/repos/github/amit1rrr/numcompress/badge.svg)](https://coveralls.io/github/amit1rrr/numcompress)
 
 # Installation
---------------
 ```
 pip numcompress install
 ```
 
 # Usage
---------------
 ```python
 from numcompress import compress, decompress
 
@@ -47,5 +44,4 @@ from numcompress import compress, decompress
 
 
 # Contribute
---------------
 If you see any problem open an issue or send a pull request. You can write to [me](https://blog.amirathi.com/about/) at [amit.juschill@gmail.com](mailto:amit.juschill@gmail.com)
