@@ -61,7 +61,7 @@ pytest -s
 
 Here's a quick example showing compression ratio:
 
-```
+```python
 >>> series = random.sample(range(1, 100000), 50000)  # generate 50k random numbers between 1 and 100k
 >>> text = compress(series)  # apply compression
 
