@@ -59,5 +59,27 @@ You can run the test suite with -s switch to see the compression ratio. You can 
 pytest -s
 ```
 
+Here's a quick example showing compression ratio:
+
+```
+>>> series = random.sample(range(1, 100000), 50000)  # generate 50k random numbers between 1 and 100k
+>>> text = compress(series)  # apply compression
+
+>>> original_size = sum(sys.getsizeof(i) for i in series)
+>>> original_size
+1200000
+
+>>> compressed_size = sys.getsizeof(text)
+>>> compressed_size
+284092
+
+>>> compression_ratio = ((original_size - compressed_size) * 100.0) / original_size
+>>> compression_ratio
+76.32566666666666
+```
+
+We get ~76% compression for random numbers between 1 & 100k. This ratio increases for real world numerical series as the difference between consecutive numbers tends to be lower. Think of stock prices, monitoring & other time series data.
+
+
 # Contribute
 If you see any problem, open an issue or send a pull request. You can write to [me](https://blog.amirathi.com/about/) at [amit.juschill@gmail.com](mailto:amit.juschill@gmail.com)
