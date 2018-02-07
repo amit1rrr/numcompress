@@ -1,3 +1,5 @@
+import collections
+
 PRECISION_LOWER_LIMIT=0
 PRECISION_UPPER_LIMIT = 10
 
@@ -6,7 +8,7 @@ def compress(series, precision=3):
     last_num = 0
     result = ''
 
-    if not isinstance(series, list):
+    if not isinstance(series, collections.Iterable):
         raise ValueError('Input to compress should be of type list.')
 
     if not isinstance(precision, int):
