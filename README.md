@@ -4,10 +4,10 @@
 Simple way to compress and decompress numerical series.
  - Easily gets you above 80% compression ratio
  - You can specify the precision you need for floating points (up to 10 decimal points)
- - Provides an efficient way to store or transmit series of numbers in a compressed string format
+ - Useful to store or transmit stock prices, monitoring & other time series data in compressed string format
 
 Compression algorithm is based on [google encoded polyline format](https://developers.google.com/maps/documentation/utilities/polylinealgorithm). I modified it to preserve arbitrary precision and apply it to any numerical series. The work is motivated by usefulness of [time aware polyline](https://github.com/hypertrack/time-aware-polyline-py) built by [Arjun Attam](https://github.com/arjun27) at [HyperTrack](https://github.com/hypertrack/time-aware-polyline-py).
-
+After building this I came across [arrays](https://docs.python.org/3/library/array.html) that are much efficient than lists in terms memory footprint. You might consider using that over numcompress if you don't care about conversion to string for transmitting or storing purpose.
 
 # Installation
 ```
@@ -78,7 +78,7 @@ Here's a quick example showing compression ratio:
 76.32566666666666
 ```
 
-We get ~76% compression for random numbers between 1 & 100k. This ratio increases for real world numerical series as the difference between consecutive numbers tends to be lower. Think of stock prices, monitoring & other time series data.
+We get ~76% compression for 50k random numbers between 1 & 100k. This ratio increases for real world numerical series as the difference between consecutive numbers tends to be lower. Think of stock prices, monitoring & other time series data.
 
 
 # Contribute
