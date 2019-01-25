@@ -2,7 +2,7 @@
 
 # numcompress
 Simple way to compress and decompress numerical series.
- - Easily gets you above 80% compression ratio
+ - Easily gets you above 80% compression ratio.
  - You can specify the precision you need for floating points (up to 10 decimal points)
  - Useful to store or transmit stock prices, monitoring & other time series data in compressed string format
 
