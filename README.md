@@ -44,6 +44,18 @@ from numcompress import compress, decompress
 >>> decompress('Acn[rpB{n@')
 [145.78, 127.6, 135.26]
 
+# compressing and decompressing numpy arrays
+
+>>> from numcompress import compress_ndarray, decompress_ndarray
+>>> import numpy as np
+
+>>> series = np.random.randint(1, 100, 100).reshape(10, 10)
+
+>>> compress_ndarray(series)
+('?S?', 'BozaCninBozaC_~i@nvs@nggA_bxB~}i@ntLotL~kaA_klBninB_pR?~qy@_|BoofBn_h@o~rA~heA~dtB_t`BnxzAokuC_pR~ooCo}}B~dtB_~i@nqP~tu@~uJoe}CnrbB~rN_db@oyo@n}@_xq@~lV~wq@nm_Aoe`@o{vA~s`B~zm@oe`@okX_g^ojcAndkAnp{@~{B_cmA_af@~{_CntLozDohyCn}}B~f^_xnD~`f@?_yF_vJ~tu@oaoA~`cD~uJ_mV_g^?~n}@_acD~yxAodkAn~rAnvs@?__|B~pdBnkX_{jD~iZ~rNnnTokX_vJnnqC_~i@_klB~v|A_~i@_o}@~yxAntL~}i@_fiA')
+
+>>> decompress_ndarray('?S?', 'BozaCninBozaC_~i@nvs@nggA_bxB~}i@ntLotL~kaA_klBninB_pR?~qy@_|BoofBn_h@o~rA~heA~dtB_t`BnxzAokuC_pR~ooCo}}B~dtB_~i@nqP~tu@~uJoe}CnrbB~rN_db@oyo@n}@_xq@~lV~wq@nm_Aoe`@o{vA~s`B~zm@oe`@okX_g^ojcAndkAnp{@~{B_cmA_af@~{_CntLozDohyCn}}B~f^_xnD~`f@?_yF_vJ~tu@oaoA~`cD~uJ_mV_g^?~n}@_acD~yxAodkAn~rAnvs@?__|B~pdBnkX_{jD~iZ~rNnnTokX_vJnnqC_~i@_klB~v|A_~i@_o}@~yxAntL~}i@_fiA').shape
+(10, 10)
 ```
 
 

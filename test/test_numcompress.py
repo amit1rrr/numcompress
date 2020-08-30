@@ -1,8 +1,9 @@
 import unittest
 import random
 import sys
+import numpy as np
 import pytest
-from numcompress import compress, decompress
+from numcompress import compress, decompress, compress_ndarray, decompress_ndarray
 
 
 class TestNumCompress(unittest.TestCase):
@@ -101,3 +102,7 @@ class TestNumCompress(unittest.TestCase):
     def test_decompress_invalid_text_input_raises_exception(self):
         with pytest.raises(ValueError):
             decompress('^fhfjelr;')
+
+    def test_compress_decompress_works_with_numpy_array(self):
+        series = np.random.randint(1, 100, 100).reshape(10, 10)
+        assert (decompress_ndarray(*compress_ndarray(series)) == series).all()

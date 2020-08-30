@@ -3,7 +3,6 @@ try:
 except ImportError:
     from distutils.core import setup
 
-
 setup(
     name='numcompress',
     packages=['numcompress'],
@@ -15,5 +14,6 @@ setup(
     license='MIT',
     download_url='',
     keywords=['compression', 'numerical', 'numbers into text'],
-    classifiers=[]
+    classifiers=[],
+    install_requires=['numpy'],
 )

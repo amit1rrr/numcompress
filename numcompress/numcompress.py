@@ -1,3 +1,5 @@
+import numpy as np
+
 PRECISION_LOWER_LIMIT=0
 PRECISION_UPPER_LIMIT = 10
 
@@ -81,3 +83,13 @@ def decompress_number(text, index):
             break
 
     return index, (~result >> 1) if (result & 1) != 0 else (result >> 1)
+
+
+def compress_ndarray(series, precision=3):
+    return compress(list(series.shape), precision=0), compress(series.flatten().tolist(), precision)
+
+
+def decompress_ndarray(shape_text, text):
+    shape = decompress(shape_text)
+    series = decompress(text)
+    return np.array(series).reshape(*shape)
