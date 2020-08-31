@@ -49,13 +49,31 @@ from numcompress import compress, decompress
 >>> from numcompress import compress_ndarray, decompress_ndarray
 >>> import numpy as np
 
->>> series = np.random.randint(1, 100, 100).reshape(10, 10)
+>>> series = np.random.randint(1, 100, 25).reshape(5, 5)
 
->>> compress_ndarray(series)
-'?S?,Bo|k@ojcA~kaAnqPnzD_qdBnqP_~i@n}}B_d_DninB~tu@_mV_uu@_}tAo}@nrbBosw@~yxA_fiAovs@ntiCoe`@_hpBn|hDojcA_{m@~zm@okXovs@~c_DocvB~uJ~rN_uu@owHnp{@ndkA_ieA_{m@ninBo_h@n}@o`zB~rkCoggA_yF_yFndkAo}}B~axBn_h@oe}C?ninB_bxB~wnDnzDom_Aoh\\nwH~|tA_{m@_|_C~wnD_|Bo_h@_ycCnnT_vJ~f^n{vA_|_C~pdBnggA_yFohyCntL~iwCowHodkAnxzA_rvD~ooC~xFne`@_}tA_db@njcAotLo{vAnnqC_{jD~lVninB_cmAnnTovs@~{BnqP'
+>>> compressed_series = compress_ndarray(series)
 
->>> decompress_ndarray('?S?,Bo|k@ojcA~kaAnqPnzD_qdBnqP_~i@n}}B_d_DninB~tu@_mV_uu@_}tAo}@nrbBosw@~yxA_fiAovs@ntiCoe`@_hpBn|hDojcA_{m@~zm@okXovs@~c_DocvB~uJ~rN_uu@owHnp{@ndkA_ieA_{m@ninBo_h@n}@o`zB~rkCoggA_yF_yFndkAo}}B~axBn_h@oe}C?ninB_bxB~wnDnzDom_Aoh\\nwH~|tA_{m@_|_C~wnD_|Bo_h@_ycCnnT_vJ~f^n{vA_|_C~pdBnggA_yFohyCntL~iwCowHodkAnxzA_rvD~ooC~xFne`@_}tA_db@njcAotLo{vAnnqC_{jD~lVninB_cmAnnTovs@~{BnqP').shape
-(10, 10)
+>>> decompressed_series = decompress_ndarray(compressed_series)
+
+>>> series
+array([[29, 95, 10, 48, 20],
+       [60, 98, 73, 96, 71],
+       [95, 59,  8,  6, 17],
+       [ 5, 12, 69, 65, 52],
+       [84,  6, 83, 20, 50]])
+
+>>> compressed_series
+'5*5,Bosw@_|_Cn_eD_fiA~tu@_cmA_fiAnyo@o|k@nyo@_{m@~heAnrbB~{BonT~lVotLoinB~xFnkX_o}@~iwCokuCn`zB_ry@'
+
+>>> decompressed_series
+array([[29., 95., 10., 48., 20.],
+       [60., 98., 73., 96., 71.],
+       [95., 59.,  8.,  6., 17.],
+       [ 5., 12., 69., 65., 52.],
+       [84.,  6., 83., 20., 50.]])
+
+>>> (series == decompressed_series).all()
+True
 ```
 
 

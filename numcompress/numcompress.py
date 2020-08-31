@@ -90,7 +90,9 @@ def decompress_number(text, index):
 
 
 def compress_ndarray(series, precision=3):
-    return f'{"*".join(map(str, series.shape))}{SEPARATOR}{compress(series.flatten().tolist(), precision)}'
+    shape = "*".join(map(str, series.shape))
+    series_compressed = compress(series.flatten().tolist(), precision)
+    return '{}{}{}'.format(shape, SEPARATOR, series_compressed )
 
 
 def decompress_ndarray(text):
