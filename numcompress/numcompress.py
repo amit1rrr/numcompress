@@ -2,7 +2,10 @@ import numpy as np
 
 PRECISION_LOWER_LIMIT = 0
 PRECISION_UPPER_LIMIT = 10
-SEPARATOR = ','  # This char should have Unicode code point in the range [32, 63) to avoid overlaps.
+
+# Used for N-Dimensional array. Separates dimension and the series.
+# Should have ASCII value between (0, 63) to avoid overlapping with regular compress output.
+SEPARATOR = ','
 
 
 def compress(series, precision=3):
@@ -87,11 +90,11 @@ def decompress_number(text, index):
 
 
 def compress_ndarray(series, precision=3):
-    return f'{compress(list(series.shape), precision=0)}{SEPARATOR}{compress(series.flatten().tolist(), precision)}'
+    return f'{"*".join(map(str, series.shape))}{SEPARATOR}{compress(series.flatten().tolist(), precision)}'
 
 
 def decompress_ndarray(text):
-    shape_text, series_text = text.split(SEPARATOR)
-    shape = decompress(shape_text)
+    shape_str, series_text = text.split(SEPARATOR)
+    shape = tuple(int(dimension) for dimension in shape_str.split('*'))
     series = decompress(series_text)
     return np.array(series).reshape(*shape)
