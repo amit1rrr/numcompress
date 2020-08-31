@@ -52,9 +52,9 @@ from numcompress import compress, decompress
 >>> series = np.random.randint(1, 100, 100).reshape(10, 10)
 
 >>> compress_ndarray(series)
-('?S?', 'BozaCninBozaC_~i@nvs@nggA_bxB~}i@ntLotL~kaA_klBninB_pR?~qy@_|BoofBn_h@o~rA~heA~dtB_t`BnxzAokuC_pR~ooCo}}B~dtB_~i@nqP~tu@~uJoe}CnrbB~rN_db@oyo@n}@_xq@~lV~wq@nm_Aoe`@o{vA~s`B~zm@oe`@okX_g^ojcAndkAnp{@~{B_cmA_af@~{_CntLozDohyCn}}B~f^_xnD~`f@?_yF_vJ~tu@oaoA~`cD~uJ_mV_g^?~n}@_acD~yxAodkAn~rAnvs@?__|B~pdBnkX_{jD~iZ~rNnnTokX_vJnnqC_~i@_klB~v|A_~i@_o}@~yxAntL~}i@_fiA')
+'?S?,Bo|k@ojcA~kaAnqPnzD_qdBnqP_~i@n}}B_d_DninB~tu@_mV_uu@_}tAo}@nrbBosw@~yxA_fiAovs@ntiCoe`@_hpBn|hDojcA_{m@~zm@okXovs@~c_DocvB~uJ~rN_uu@owHnp{@ndkA_ieA_{m@ninBo_h@n}@o`zB~rkCoggA_yF_yFndkAo}}B~axBn_h@oe}C?ninB_bxB~wnDnzDom_Aoh\\nwH~|tA_{m@_|_C~wnD_|Bo_h@_ycCnnT_vJ~f^n{vA_|_C~pdBnggA_yFohyCntL~iwCowHodkAnxzA_rvD~ooC~xFne`@_}tA_db@njcAotLo{vAnnqC_{jD~lVninB_cmAnnTovs@~{BnqP'
 
->>> decompress_ndarray('?S?', 'BozaCninBozaC_~i@nvs@nggA_bxB~}i@ntLotL~kaA_klBninB_pR?~qy@_|BoofBn_h@o~rA~heA~dtB_t`BnxzAokuC_pR~ooCo}}B~dtB_~i@nqP~tu@~uJoe}CnrbB~rN_db@oyo@n}@_xq@~lV~wq@nm_Aoe`@o{vA~s`B~zm@oe`@okX_g^ojcAndkAnp{@~{B_cmA_af@~{_CntLozDohyCn}}B~f^_xnD~`f@?_yF_vJ~tu@oaoA~`cD~uJ_mV_g^?~n}@_acD~yxAodkAn~rAnvs@?__|B~pdBnkX_{jD~iZ~rNnnTokX_vJnnqC_~i@_klB~v|A_~i@_o}@~yxAntL~}i@_fiA').shape
+>>> decompress_ndarray('?S?,Bo|k@ojcA~kaAnqPnzD_qdBnqP_~i@n}}B_d_DninB~tu@_mV_uu@_}tAo}@nrbBosw@~yxA_fiAovs@ntiCoe`@_hpBn|hDojcA_{m@~zm@okXovs@~c_DocvB~uJ~rN_uu@owHnp{@ndkA_ieA_{m@ninBo_h@n}@o`zB~rkCoggA_yF_yFndkAo}}B~axBn_h@oe}C?ninB_bxB~wnDnzDom_Aoh\\nwH~|tA_{m@_|_C~wnD_|Bo_h@_ycCnnT_vJ~f^n{vA_|_C~pdBnggA_yFohyCntL~iwCowHodkAnxzA_rvD~ooC~xFne`@_}tA_db@njcAotLo{vAnnqC_{jD~lVninB_cmAnnTovs@~{BnqP').shape
 (10, 10)
 ```
 

@@ -1,7 +1,8 @@
 import numpy as np
 
-PRECISION_LOWER_LIMIT=0
+PRECISION_LOWER_LIMIT = 0
 PRECISION_UPPER_LIMIT = 10
+SEPARATOR = ','  # This char should have Unicode code point in the range [32, 63) to avoid overlaps.
 
 
 def compress(series, precision=3):
@@ -30,7 +31,7 @@ def compress(series, precision=3):
 
     for num in series:
         diff = num - last_num
-        diff = int(round(diff * (10**precision)))
+        diff = int(round(diff * (10 ** precision)))
         diff = ~(diff << 1) if diff < 0 else diff << 1
 
         while diff >= 0x20:
@@ -86,10 +87,11 @@ def decompress_number(text, index):
 
 
 def compress_ndarray(series, precision=3):
-    return compress(list(series.shape), precision=0), compress(series.flatten().tolist(), precision)
+    return f'{compress(list(series.shape), precision=0)}{SEPARATOR}{compress(series.flatten().tolist(), precision)}'
 
 
-def decompress_ndarray(shape_text, text):
+def decompress_ndarray(text):
+    shape_text, series_text = text.split(SEPARATOR)
     shape = decompress(shape_text)
-    series = decompress(text)
+    series = decompress(series_text)
     return np.array(series).reshape(*shape)

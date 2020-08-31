@@ -105,4 +105,4 @@ class TestNumCompress(unittest.TestCase):
 
     def test_compress_decompress_works_with_numpy_array(self):
         series = np.random.randint(1, 100, 100).reshape(10, 10)
-        assert (decompress_ndarray(*compress_ndarray(series)) == series).all()
+        assert (decompress_ndarray(compress_ndarray(series)) == series).all()
