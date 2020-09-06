@@ -44,6 +44,36 @@ from numcompress import compress, decompress
 >>> decompress('Acn[rpB{n@')
 [145.78, 127.6, 135.26]
 
+# compressing and decompressing numpy arrays
+
+>>> from numcompress import compress_ndarray, decompress_ndarray
+>>> import numpy as np
+
+>>> series = np.random.randint(1, 100, 25).reshape(5, 5)
+
+>>> compressed_series = compress_ndarray(series)
+
+>>> decompressed_series = decompress_ndarray(compressed_series)
+
+>>> series
+array([[29, 95, 10, 48, 20],
+       [60, 98, 73, 96, 71],
+       [95, 59,  8,  6, 17],
+       [ 5, 12, 69, 65, 52],
+       [84,  6, 83, 20, 50]])
+
+>>> compressed_series
+'5*5,Bosw@_|_Cn_eD_fiA~tu@_cmA_fiAnyo@o|k@nyo@_{m@~heAnrbB~{BonT~lVotLoinB~xFnkX_o}@~iwCokuCn`zB_ry@'
+
+>>> decompressed_series
+array([[29., 95., 10., 48., 20.],
+       [60., 98., 73., 96., 71.],
+       [95., 59.,  8.,  6., 17.],
+       [ 5., 12., 69., 65., 52.],
+       [84.,  6., 83., 20., 50.]])
+
+>>> (series == decompressed_series).all()
+True
 ```
 
 

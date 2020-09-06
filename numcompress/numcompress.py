@@ -1,5 +1,11 @@
-PRECISION_LOWER_LIMIT=0
+import numpy as np
+
+PRECISION_LOWER_LIMIT = 0
 PRECISION_UPPER_LIMIT = 10
+
+# Used for N-Dimensional array. Separates dimension and the series.
+# Should have ASCII value between (0, 63) to avoid overlapping with regular compress output.
+SEPARATOR = ','
 
 
 def compress(series, precision=3):
@@ -28,7 +34,7 @@ def compress(series, precision=3):
 
     for num in series:
         diff = num - last_num
-        diff = int(round(diff * (10**precision)))
+        diff = int(round(diff * (10 ** precision)))
         diff = ~(diff << 1) if diff < 0 else diff << 1
 
         while diff >= 0x20:
@@ -81,3 +87,16 @@ def decompress_number(text, index):
             break
 
     return index, (~result >> 1) if (result & 1) != 0 else (result >> 1)
+
+
+def compress_ndarray(series, precision=3):
+    shape = "*".join(map(str, series.shape))
+    series_compressed = compress(series.flatten().tolist(), precision)
+    return '{}{}{}'.format(shape, SEPARATOR, series_compressed )
+
+
+def decompress_ndarray(text):
+    shape_str, series_text = text.split(SEPARATOR)
+    shape = tuple(int(dimension) for dimension in shape_str.split('*'))
+    series = decompress(series_text)
+    return np.array(series).reshape(*shape)
