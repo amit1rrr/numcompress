@@ -26,7 +26,7 @@ from numcompress import compress, decompress
 [14578.0, 12759.0, 13525.0]
 ```
 
-```
+```python
 # precision argument specifies how many decimal points to preserve, defaults to 3
 
 # Floats - lossless compression
@@ -36,7 +36,7 @@ from numcompress import compress, decompress
 >>> decompress('Csi~wAhdbJgqtC')
 [145.7834, 127.5989, 135.2569]
 ```
-```
+```python
 # Floats - lossy compression
 >>> compress([145.7834, 127.5989, 135.2569], precision=2)
 'Acn[rpB{n@'
@@ -44,7 +44,7 @@ from numcompress import compress, decompress
 >>> decompress('Acn[rpB{n@')
 [145.78, 127.6, 135.26]
 ```
-```
+```python
 # compressing and decompressing numpy arrays
 
 >>> from numcompress import compress_ndarray, decompress_ndarray
