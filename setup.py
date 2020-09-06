@@ -13,6 +13,7 @@ setup(
     version='0.1.2',
     description='Python package to convert numerical series & numpy arrays into compressed strings',
     long_description = long_descr,
+    long_description_content_type='text/markdown',
     author='Amit Rathi',
     author_email='amit.juschill@gmail.com',
     url='https://github.com/amit1rrr/numcompress',
