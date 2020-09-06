@@ -12,7 +12,7 @@ python:
   - "nightly"
 
 install:
-- pip install --upgrade coverage pytest unittest2 pytest-cov coveralls
+- pip install --upgrade coverage pytest unittest2 pytest-cov coveralls numpy
 
 # command to run tests
 script:

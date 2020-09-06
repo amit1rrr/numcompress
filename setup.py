@@ -3,11 +3,16 @@ try:
 except ImportError:
     from distutils.core import setup
 
+with open("README.md", "rb") as f:
+    long_descr = f.read().decode("utf-8")
+
+
 setup(
     name='numcompress',
     packages=['numcompress'],
-    version='0.1.1',
-    description='Python package to convert numerical series into compressed strings',
+    version='0.1.2',
+    description='Python package to convert numerical series & numpy arrays into compressed strings',
+    long_description = long_descr,
     author='Amit Rathi',
     author_email='amit.juschill@gmail.com',
     url='https://github.com/amit1rrr/numcompress',
