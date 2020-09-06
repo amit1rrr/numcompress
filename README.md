@@ -27,9 +27,8 @@ from numcompress import compress, decompress
 ```
 
 ```python
-# precision argument specifies how many decimal points to preserve, defaults to 3
-
 # Floats - lossless compression
+# precision argument specifies how many decimal points to preserve, defaults to 3
 >>> compress([145.7834, 127.5989, 135.2569], precision=4)
 'Csi~wAhdbJgqtC'
 
