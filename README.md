@@ -47,6 +47,7 @@ from numcompress import compress, decompress
 # compressing and decompressing numpy arrays
 >>> from numcompress import compress_ndarray, decompress_ndarray
 >>> import numpy as np
+
 >>> series = np.random.randint(1, 100, 25).reshape(5, 5)
 >>> compressed_series = compress_ndarray(series)
 >>> decompressed_series = decompress_ndarray(compressed_series)
