@@ -109,4 +109,4 @@ We get ~76% compression for 50k random numbers between 1 & 100k. This ratio incr
 
 
 # Contribute
-If you see any problem, open an issue or send a pull request. You can write to [me](https://blog.amirathi.com/about/) at [amit.juschill@gmail.com](mailto:amit.juschill@gmail.com)
+If you see any problem, open an issue or send a pull request. You can write to [me](https://blog.amirathi.com/about/) at [amit.juschill@gmail.com](mailto:hello@amirathi.com)
